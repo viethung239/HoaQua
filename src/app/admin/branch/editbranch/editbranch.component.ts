@@ -16,10 +16,10 @@ export class EditbranchComponent implements OnInit {
 
   editBranchForm!: FormGroup;
   idChiNhanh: string | null;
-  ngayTaoOriginal: string | null = null;
+  ngayTaoOriginal: string | null;
   constructor(private route: ActivatedRoute, private fb: FormBuilder, private branchService: BranchService, private snackBar: MatSnackBar, private router: Router) {
     this.idChiNhanh = null;
-
+    this.ngayTaoOriginal = null;
   }
 
   ngOnInit(): void {
@@ -47,7 +47,7 @@ export class EditbranchComponent implements OnInit {
       this.branchService.getBranchById(this.idChiNhanh).subscribe({
         next: (branchData) => {
           if (branchData) {
-            this.ngayTaoOriginal = branchData.ngayTao; // Lưu trữ giá trị ngayTao
+            this.ngayTaoOriginal = branchData.ngayTao;
             this.editBranchForm.patchValue({
               tenChiNhanh: branchData.tenChiNhanh,
             });

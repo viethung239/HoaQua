@@ -151,3 +151,26 @@
     box-shadow: 0 0 0 13px rgba(17,64,126,0);
   }
 }
+.head-user-avatar-container {
+  position: relative;
+}
+
+.popup {
+  position: absolute;
+  bottom: -110%;
+  left: 90%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  transition: bottom 0.3s ease;
+  z-index: 5;
+  width: 100px;
+
+}
+
+.popup.visible {
+  bottom: 110%;
+}
+

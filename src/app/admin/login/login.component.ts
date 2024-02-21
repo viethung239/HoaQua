@@ -1,3 +1,4 @@
+import { AuthenService } from './../../services/authen.service';
 
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
@@ -16,33 +17,28 @@ export class LoginComponent {
   username!: string;
   password!: string;
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private authenService:AuthenService) {
 
   }
 
-  login() {
-
-    this.http.post<any>('https://localhost:7123/api/Auhen/dang-nhap', { username: this.username, password: this.password })
+  Login(): void {
+    this.authenService.Login(this.username, this.password)
       .pipe(
         catchError(error => {
-          console.error('Đăng nhập không thành công', error,{ username: this.username, password: this.password });
-          return new Observable<never>(); // Throw error để tiếp tục xử lý ở subscribe
-
+          console.error('Đăng nhập không thành công', error, { username: this.username, password: this.password });
+          return new Observable<never>();
         })
       )
       .subscribe(response => {
-
-
         const token = response.token;
-        localStorage.setItem('token', token);
+        // Chỉ sử dụng dịch vụ AuthenService để lưu token
+        this.authenService.saveToken(token);
         console.log('Đăng nhập thành công', token);
         this.router.navigate(['admin/trang-chu']);
       });
   }
 
-  isAuthenticated() {
-    const token = localStorage.getItem('token');
-    // Kiểm tra xem token có hợp lệ không
-    return !this.jwtHelper.isTokenExpired(token);
-  }
+
+
+
 }

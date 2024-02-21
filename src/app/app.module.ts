@@ -18,6 +18,7 @@ import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/
 import { LoginComponent } from './admin/login/login.component';
 import { LayoutAdminComponent } from './admin/layout-admin/layout-admin.component';
 import { FormsModule } from '@angular/forms';
+import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 
 
 
@@ -59,12 +60,16 @@ import { FormsModule } from '@angular/forms';
     MatPaginatorModule,
     MatTableModule,
     MatButtonModule,
-    FormsModule
+    FormsModule,
+
 
   ],
   providers: [
    // provideClientHydration()
-   [provideHttpClient(withFetch()), provideClientHydration()]
+   [provideHttpClient(withFetch()),JwtHelperService],
+   { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+
+
   ],
   bootstrap: [AppComponent]
 })

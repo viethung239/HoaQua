@@ -14,30 +14,33 @@
           <button class="head-menu-item-btn ripple">
             <img [src]="'assets/flags/vietnam.png'" class="flag" alt="flag"> </button>
         </div>
-        <div class="head-menu-item">
-          <button class="head-menu-item-btn ripple">
-            <i class="far fa-expand menu-icon"></i>
-          </button>
-        </div>
+
         <div class="head-menu-item">
           <button class="head-menu-item-btn ripple">
             <i class="far fa-bell menu-icon"></i>
           </button>
         </div>
         <div class="head-menu-item">
-          <button class="head-menu-item-btn ripple">
-            <i class="far fa-comment-alt menu-icon"></i>
+          <button class="head-menu-item-btn ripple" (click)="logout()">
+            <i class="far fa-sign-out menu-icon"></i>
           </button>
         </div>
-      </div>
       <div class="head-user-avatar-container">
-        <div class="head-user-avatar">
+        <div class="head-user-avatar" (click)="togglePopup()">
           <img src="../../assets/user3.jpg" alt="user" class="user-avatar">
           <div class="circle-indicator pulse"></div>
+        </div>
+        <div *ngIf="isPopupVisible" class="popup">
+
+
+           <p>Tên: {{ userName }}</p>
+
 
         </div>
-
       </div>
+
     </div>
   </div>
 </div>
+
+
