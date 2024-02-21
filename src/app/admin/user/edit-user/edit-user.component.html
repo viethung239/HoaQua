@@ -1,0 +1,80 @@
+<div class="header-container">
+  <h1>Chỉnh sửa</h1>
+</div>
+<form [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
+
+  <mat-form-field>
+    <input matInput placeholder="Email" formControlName="email">
+    <mat-error *ngIf="editUserForm.get('email')?.hasError('required')">
+      Email không được để trống
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Tên nhân viên" formControlName="tenNV">
+    <mat-error *ngIf="editUserForm.get('tenNV')?.hasError('required')">
+      Tên nhân viên không được để trống
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Số điện thoại" formControlName="soDienThoai">
+    <mat-error *ngIf="editUserForm.get('soDienThoai')?.hasError('required')">
+      Số điện thoại không được để trống
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Địa chỉ" formControlName="diaChi">
+    <mat-error *ngIf="editUserForm.get('diaChi')?.hasError('required')">
+      Số điện thoại không được để trống
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Ngày sinh" type="date" formControlName="ngaySinh">
+    <mat-error *ngIf="editUserForm.get('ngaySinh')?.hasError('required')">
+      Ngày sinh không được để trống
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Giới tính</mat-label>
+    <mat-select formControlName="gioiTinh" placeholder="Chọn">
+      <mat-option [value]="0">Nam</mat-option>
+      <mat-option [value]="1">Nữ</mat-option>
+      <mat-option [value]="2">Khác</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Danh mục quyền</mat-label>
+    <mat-select formControlName="roleId" placeholder="Chọn quyền">
+      <mat-option *ngFor="let role of Role" [value]="role.roleId">
+        {{ role.tenQuyen }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Chi Nhánh</mat-label>
+    <mat-select formControlName="idChiNhanh" placeholder="Chọn chi nhánh">
+      <mat-option *ngFor="let chinhnhanh of ChiNhanh" [value]="chinhnhanh.idChiNhanh">
+        {{ chinhnhanh.tenChiNhanh }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Sử dụng</mat-label>
+    <mat-select formControlName="isActive" placeholder="Chọn">
+      <mat-option [value]="true">Sử dụng</mat-option>
+      <mat-option [value]="false">Không sử dụng</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="edit-form">
+    <mat-label>Chọn tệp</mat-label>
+    <input matInput placeholder="Chọn tệp" readonly [value]="editUserForm.get('avartarUrl')?.value">
+    <mat-icon matSuffix (click)="fileInput.click()">attach_file</mat-icon>
+    <input type="file" #fileInput style="display:none;" (change)="onFileSelected($event)">
+
+  </mat-form-field>
+
+
+
+  <button mat-raised-button style="margin-left: 1075px;" color="primary" type="submit">Thêm người dùng </button>
+</form>

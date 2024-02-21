@@ -1,0 +1,67 @@
+<div *ngIf="khoct" class="product-details-container mat-elevation-z2">
+
+  <h2>Tên Kho: {{ getTenKho(khoct.idKho) }}</h2>
+  <!--<h2>Tên Sản Phẩm: {{ getTenSanPham(khoct.idSanPham) }}</h2>-->
+  <div class="product-info">
+    <div class="details">
+      <mat-card>
+        <mat-card-content>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Danh mục kho</mat-label>
+            <mat-select [disabled]="true" [value]="khoct.idDMKho">
+              <mat-option *ngFor="let khodm of DMKho" [value]="khodm.idDMKho">
+                {{ khodm.tenKho }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Chi Nhánh</mat-label>
+            <mat-select [disabled]="true" [value]="khoct.idChiNhanh">
+              <mat-option *ngFor="let chiNhanh of ChiNhanh" [value]="chiNhanh.idChiNhanh">
+                {{ chiNhanh.tenChiNhanh }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Nhà cung cấp</mat-label>
+            <mat-select [disabled]="true" [value]="khoct.idNhaCungCap">
+              <mat-option *ngFor="let ncc of NCC" [value]=" ncc.idNhaCungCap">
+                {{ ncc.tenNhaCung }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Tên sản phẩm</mat-label>
+            <mat-select [disabled]="true" [value]="khoct.idSanPham">
+              <mat-option *ngFor="let sanpham of SanPham" [value]=" sanpham.idSanPham">
+                {{  sanpham.tenSanPham }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Số lượng</mat-label>
+            <input matInput [readonly]="true">
+            {{ khoct.soLuong }}
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Giá nhập trung bình</mat-label>
+            <input matInput [readonly]="true">
+            {{ khoct.giaNhapTrungBinh | currency:'VND' }}
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Ngày tạo</mat-label>
+            <input matInput [readonly]="true">
+            {{ khoct.ngayTao | date:'dd/MM/yyyy HH:mm:ss' }}
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Ngày cập nhật</mat-label>
+            <input matInput [readonly]="true">
+            {{ khoct.ngayCapNhat | date:'dd/MM/yyyy HH:mm:ss' }}
+          </mat-form-field>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

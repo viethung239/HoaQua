@@ -1,0 +1,16 @@
+<div class="header-container">
+  <h1>Thêm mới chi nhánh</h1>
+</div>
+<form [formGroup]="addBranchForm" (ngSubmit)="onSubmit()">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Tên Chi Nhánh" formControlName="tenChiNhanh">
+    <mat-error *ngIf="addBranchForm.get('tenChiNhanh')?.hasError('required')">
+      Tên Chi Nhánh không được để trống
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Các trường dữ liệu khác nếu có -->
+
+  <button mat-raised-button color="primary" type="submit">Thêm Chi Nhánh</button>
+</form>
+

@@ -1,0 +1,23 @@
+<div class="header-container">
+  <h1>Thêm mới kho</h1>
+</div>
+<form [formGroup]="addKhoForm" (ngSubmit)="onSubmit()">
+  <mat-form-field class="edit-form">
+    <input matInput placeholder="Tên kho" formControlName="tenKho">
+    <mat-error *ngIf="addKhoForm.get('tenKho')?.hasError('required')">
+      Tên kho không được để trống
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Chi nhánh</mat-label>
+    <mat-select formControlName="idChiNhanh" placeholder="Chọn chi nhánh kho">
+      <mat-option *ngFor="let branch of Branch" [value]="branch.idChiNhanh">
+        {{ branch.tenChiNhanh }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button style="margin-left: 1075px;" color="primary" type="submit">Xác Nhận </button>
+</form>
+

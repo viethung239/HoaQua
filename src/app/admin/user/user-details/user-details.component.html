@@ -1,0 +1,85 @@
+<div *ngIf="user" class="product-details-container mat-elevation-z2">
+  <h2>Tên nhân viên: {{ user.tenNV }} </h2>
+  <div class="product-info">
+    <div class="product-image">
+      <mat-card>
+        <img mat-card-image src="assets/{{ user.avartarUrl }}" alt="{{ user.tenNV }} Image">
+
+      </mat-card>
+      <h2  style="text-align: center;"> Mã NV : {{user.maNV}}</h2>
+    </div>
+    <div class="details">
+      <mat-card>
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <mat-label>Tên tài khoản</mat-label>
+            <input matInput [readonly]="true" >
+            {{ user.userName  }}
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput [readonly]="true" >
+            {{ user.email  }}
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Số điện thoại</mat-label>
+            <input matInput [readonly]="true" >
+            {{ user.soDienThoai}}
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Địa chỉ</mat-label>
+            <input matInput [readonly]="true" >
+            {{ user.diaChi}}
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Ngày sinh</mat-label>
+            <input matInput [readonly]="true" >
+            {{ user.ngaySinh | date:'dd/MM/yyyy' }}
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Ngày tạo</mat-label>
+            <input matInput [readonly]="true" >
+            {{ user.ngayTao | date:'dd/MM/yyyy HH:mm:ss' }}
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Ngày cập nhật</mat-label>
+            <input matInput [readonly]="true" >
+            {{ user.ngayCapNhat | date:'dd/MM/yyyy HH:mm:ss' }}
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Sử dụng</mat-label>
+            <mat-select [disabled]="true" [value]="user.isActive">
+              <mat-option [value]="true">Sử dụng</mat-option>
+              <mat-option [value]="false">Không sử dụng</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Giới tính</mat-label>
+            <mat-select [disabled]="true" [value]="user.gioiTinh">
+              <mat-option [value]="0">Nam</mat-option>
+              <mat-option [value]="1">Nữ</mat-option>
+              <mat-option [value]="2">Khác</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Chi Nhánh</mat-label>
+            <mat-select [disabled]="true" [value]="user.idChiNhanh">
+              <mat-option *ngFor="let chinhanh of ChiNhanh" [value]="chinhanh.idChiNhanh">
+                {{ chinhanh.tenChiNhanh }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Quyền</mat-label>
+            <mat-select [disabled]="true" [value]="user.roleId">
+              <mat-option *ngFor="let role of Role" [value]="role.roleId">
+                {{ role.tenQuyen }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,34 @@
+<div class="header-container">
+  <h1>Thêm mới nhà cung cấp</h1>
+</div>
+<form [formGroup]="addDMKhoForm" (ngSubmit)="onSubmit()">
+  <mat-form-field class="edit-form">
+    <input matInput placeholder="Tên kho" formControlName="tenKho">
+    <mat-error *ngIf="addDMKhoForm.get('tenKho')?.hasError('required')">
+      Tên nhà cung cấp không được để trống
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="edit-form">
+    <input matInput placeholder="Mã kho" formControlName="maKho">
+    <mat-error *ngIf="addDMKhoForm.get('maKho')?.hasError('required')">
+      Số điện thoại liên hệ không được để trống
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Sử dụng</mat-label>
+    <mat-select formControlName="isActive" placeholder="Chọn">
+      <mat-option [value]="true">Sử dụng</mat-option>
+      <mat-option [value]="false">Không sử dụng</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Kiểu loại</mat-label>
+    <mat-select formControlName="kieuLoai" placeholder="Chọn">
+      <mat-option value="Đông Lạnh">Đông Lạnh</mat-option>
+      <mat-option value="Kho Chứa Hàng Thực Phẩm">Kho Chứa Hàng Thực Phẩm</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button style="margin-left: 1075px;" color="primary" type="submit">Xác nhận</button>
+</form>
+
+

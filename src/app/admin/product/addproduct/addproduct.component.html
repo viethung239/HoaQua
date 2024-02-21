@@ -1,0 +1,56 @@
+<div class="header-container">
+  <h1>Thêm mới sản phẩm</h1>
+</div>
+<form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input matInput placeholder="Tên Sản Phẩm" formControlName="tenSanPham">
+    <mat-error *ngIf="addProductForm.get('tenSanPham')?.hasError('required')">
+      Tên sản phẩm không được để trống
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Giá" formControlName="giaSanPham">
+    <mat-error *ngIf="addProductForm.get('giaSanPham')?.hasError('required')">
+      Giá sản phẩm không được để trống
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Giá Nhập" formControlName="giaNhapVao">
+    <mat-error *ngIf="addProductForm.get('giaNhapVao')?.hasError('required')">
+      Giá nhập sản phẩm không được để trống
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Mô tả" formControlName="mota">
+    <mat-error *ngIf="addProductForm.get('mota')?.hasError('required')">
+      Mô tả sản phẩm không được để trống
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Danh mục sản phẩm</mat-label>
+    <mat-select formControlName="idDMSanPham" placeholder="Chọn danh mục">
+      <mat-option *ngFor="let category of DMSanPham" [value]="category.idDMSanPham">
+        {{ category.tenDanhMucSanPham }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Sử dụng</mat-label>
+    <mat-select formControlName="suDung" placeholder="Chọn">
+      <mat-option [value]="true">Sử dụng</mat-option>
+      <mat-option [value]="false">Không sử dụng</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="edit-form">
+    <mat-label>Chọn tệp</mat-label>
+    <input matInput placeholder="Chọn tệp" readonly [value]="addProductForm.get('idImage')?.value">
+    <mat-icon matSuffix (click)="fileInput.click()">attach_file</mat-icon>
+    <input type="file" #fileInput style="display:none;" (change)="onFileSelected($event)">
+
+  </mat-form-field>
+
+
+
+  <button mat-raised-button style="margin-left: 1075px;" color="primary" type="submit">Thêm Sản Phẩm </button>
+</form>

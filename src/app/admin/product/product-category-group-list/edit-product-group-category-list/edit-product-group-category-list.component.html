@@ -1,0 +1,26 @@
+<div class="header-container">
+  <h1>Chỉnh sửa danh mục sản phẩm</h1>
+</div>
+<form [formGroup]="editDMNProductForm" (ngSubmit)="onSubmit()">
+  <mat-form-field class="edit-form">
+    <input matInput placeholder="Tên nhóm danh mục sản Phẩm" formControlName="tenDMNhomSanPham">
+    <mat-error *ngIf="editDMNProductForm.get('tenDMNhomSanPham')?.hasError('required')">
+      Tên nhóm danh mục sản phẩm không được để trống
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="edit-form">
+    <input matInput placeholder="Mô tả" formControlName="moTa">
+    <mat-error *ngIf="editDMNProductForm.get('moTa')?.hasError('required')">
+      Tên nhóm danh mục sản phẩm không được để trống
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Sử dụng</mat-label>
+    <mat-select formControlName="suDung" placeholder="Chọn">
+      <mat-option [value]="true">Sử dụng</mat-option>
+      <mat-option [value]="false">Không sử dụng</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button style="margin-left: 1075px;" color="primary" type="submit">Chỉnh sửa </button>
+</form>

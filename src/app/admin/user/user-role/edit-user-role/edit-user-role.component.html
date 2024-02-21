@@ -1,0 +1,21 @@
+<div class="header-container">
+  <h1>Sửa thông tin quyền</h1>
+</div>
+<form [formGroup]="editRoleForm" (ngSubmit)="onSubmit()">
+  <mat-form-field class="edit-form">
+    <input matInput placeholder="Tên quyền" formControlName="tenQuyen">
+    <mat-error *ngIf="editRoleForm.get('tenQuyen')?.hasError('required')">
+      Tên quyền không được để trống
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field class="edit-form">
+    <input matInput placeholder="Mô tả quyền" formControlName="moTa">
+    <mat-error *ngIf="editRoleForm.get('moTa')?.hasError('required')">
+      mô tả không được để trống
+    </mat-error>
+  </mat-form-field>
+
+
+  <button mat-raised-button style="margin-left: 1075px;" color="primary" type="submit">Xác nhận</button>
+</form>
+

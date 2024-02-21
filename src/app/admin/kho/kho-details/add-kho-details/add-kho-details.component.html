@@ -1,0 +1,59 @@
+<div class="header-container">
+  <h1>Thêm mới sản phẩm</h1>
+</div>
+<form [formGroup]="addKhoCTForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input matInput placeholder="Số lượng" formControlName="soLuong">
+    <mat-error *ngIf="addKhoCTForm.get('soLuong')?.hasError('required')">
+      số lượng sản phẩm không được để trống
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Giá nhập trung bình" formControlName="giaNhapTrungBinh">
+    <mat-error *ngIf="addKhoCTForm.get('giaNhapTrungBinh')?.hasError('required')">
+      số lượng sản phẩm không được để trống
+    </mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Tên kho</mat-label>
+    <mat-select formControlName="idKho" placeholder="Chọn kho">
+      <mat-option *ngFor="let kho of Kho" [value]="kho.idKho">
+        {{ kho.tenKho }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Danh mục Kho</mat-label>
+    <mat-select formControlName="idDMKho" placeholder="Chọn kho">
+      <mat-option *ngFor="let khodm of DMKho" [value]="khodm.idDMKho">
+        {{ khodm.tenKho }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Chi Nhánh</mat-label>
+    <mat-select formControlName="idChiNhanh" placeholder="Chọn chi nhánh">
+      <mat-option *ngFor="let chiNhanh of ChiNhanh" [value]="chiNhanh.idChiNhanh">
+        {{ chiNhanh.tenChiNhanh }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Sản Phẩm</mat-label>
+    <mat-select formControlName="idSanPham" placeholder="Chọn sản phẩm">
+      <mat-option *ngFor="let sanpham of SanPham" [value]=" sanpham.idSanPham">
+        {{  sanpham.tenSanPham }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Nhà cung cấp</mat-label>
+    <mat-select formControlName="idNhaCungCap" placeholder="Chọn nhà cung cấp">
+      <mat-option *ngFor="let ncc of NCC" [value]=" ncc.idNhaCungCap">
+        {{  ncc.tenNhaCung }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button style="margin-left: 1075px;" color="primary" type="submit">Thêm Sản Phẩm </button>
+</form>
