@@ -35,7 +35,6 @@ export class AddproductComponent implements OnInit {
     });
   }
   ngOnInit(): void {
-    // Lấy danh sách danh mục sản phẩm từ API
     this.dmproductService.getListDMProduct().subscribe({
       next: (data: any) => {
         this.DMSanPham = data;
@@ -47,19 +46,42 @@ export class AddproductComponent implements OnInit {
   }
   getCurrentDateTime(): string {
     const now = new Date();
-    // Chuyển định dạng ngày giờ theo ISO
+
     return now.toISOString();
   }
   onFileSelected(event: any) {
     const selectedFile = event.target.files[0];
-    const fileName = selectedFile.name;
-    console.log('Tên tệp đã chọn:', fileName);
+    if (selectedFile) {
+      const fileName = selectedFile.name;
+      const fileSize = selectedFile.size;
+      const fileType = selectedFile.type;
 
-    // Lưu tên tệp vào biến trong component
-    this.addProductForm.patchValue({
-      idImage: fileName
-    });
+
+      if (!fileType.startsWith('image/')) {
+        console.error('Chỉ chấp nhận các loại file ảnh.');
+        return;
+      }
+
+
+      const maxSizeBytes = 5 * 1024 * 1024;
+      if (fileSize > maxSizeBytes) {
+        console.error('Kích thước file vượt quá giới hạn cho phép.');
+        return;
+      }
+
+      console.log('Tên tệp đã chọn:', fileName);
+
+
+      this.addProductForm.patchValue({
+        idImage: fileName
+      });
+    } else {
+      console.error('Không tìm thấy tệp đã chọn');
+    }
   }
+
+
+
   onSubmit() {
     console.log('sản phẩm trước khi đươc gửi đi',this.addProductForm);
     if (this.addProductForm.valid) {

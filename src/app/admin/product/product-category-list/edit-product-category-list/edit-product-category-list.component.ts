@@ -18,7 +18,7 @@ export class EditProductCategoryListComponent {
   constructor(private route: ActivatedRoute, private fb: FormBuilder,  private dmproductService: DmproductService,
     private ndmproductService: NdmproductService, private snackBar: MatSnackBar, private router: Router) {
     this.idDMSanPham = null;
-
+    this.ngayTaoOriginal = null;
   }
 
   ngOnInit(): void {

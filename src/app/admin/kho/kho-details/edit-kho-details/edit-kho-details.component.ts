@@ -33,7 +33,7 @@ export class EditKhoDetailsComponent {
      private branchService:BranchService,
      ) {
     this.idKhoChiTiet = null;
-
+    this.ngayTaoOriginal = null;
   }
 
   ngOnInit(): void {

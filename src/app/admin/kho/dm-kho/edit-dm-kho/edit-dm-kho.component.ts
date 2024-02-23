@@ -16,7 +16,7 @@ export class EditDmKhoComponent {
   constructor(private route: ActivatedRoute, private fb: FormBuilder,  private dmkhoService: DmkhoService,
     private snackBar: MatSnackBar, private router: Router) {
     this.idDMKho = null;
-
+    this.ngayTaoOriginal = null;
   }
 
   ngOnInit(): void {

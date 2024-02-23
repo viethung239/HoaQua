@@ -24,7 +24,7 @@ export class EditUserComponent  {
   constructor(private route: ActivatedRoute, private fb: FormBuilder,  private userService: UserService,
     private userRoleService : UseroleService, private branchService: BranchService, private snackBar: MatSnackBar, private router: Router) {
     this.userId = null;
-
+    this.ngayTaoOriginal = null;
   }
 
   ngOnInit(): void {

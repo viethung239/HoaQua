@@ -15,7 +15,7 @@ export class EditNccComponent {
   ngayTaoOriginal: string | null = null;
   constructor(private route: ActivatedRoute, private fb: FormBuilder,  private nccService: NccService, private snackBar: MatSnackBar, private router: Router) {
     this.idNhaCungCap = null;
-
+    this.ngayTaoOriginal = null;
   }
 
   ngOnInit(): void {

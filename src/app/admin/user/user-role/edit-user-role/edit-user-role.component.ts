@@ -16,7 +16,7 @@ export class EditUserRoleComponent {
   constructor(private route: ActivatedRoute, private fb: FormBuilder,  private roleService: UseroleService,
     private snackBar: MatSnackBar, private router: Router) {
     this.roleId = null;
-
+    this.ngayTaoOriginal = null;
   }
 
   ngOnInit(): void {

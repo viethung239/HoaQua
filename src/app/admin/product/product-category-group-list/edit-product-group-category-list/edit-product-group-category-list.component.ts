@@ -18,7 +18,7 @@ export class EditProductGroupCategoryListComponent  implements OnInit {
   constructor(private route: ActivatedRoute, private fb: FormBuilder,
     private ndmproductService: NdmproductService, private snackBar: MatSnackBar, private router: Router) {
     this.idDMNSanPham = null;
-
+    this.ngayTaoOriginal = null;
   }
 
   ngOnInit(): void {

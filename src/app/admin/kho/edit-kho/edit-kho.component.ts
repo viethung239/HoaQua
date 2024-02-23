@@ -19,6 +19,7 @@ export class EditKhoComponent {
      private khoService: KhoService, private branchService: BranchService,
      private snackBar: MatSnackBar, private router: Router) {
     this.idKho = null;
+    this.ngayTaoOriginal = null;
 
   }
 

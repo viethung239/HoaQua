@@ -18,7 +18,7 @@ export class EditproductComponent implements OnInit {
   constructor(private route: ActivatedRoute, private fb: FormBuilder,  private productService: ProductService,
     private dmproductService : DmproductService, private snackBar: MatSnackBar, private router: Router) {
     this.idSanPham = null;
-
+    this.ngayTaoOriginal = null;
   }
 
   ngOnInit(): void {
@@ -85,13 +85,33 @@ export class EditproductComponent implements OnInit {
   }
   onFileSelected(event: any) {
     const selectedFile = event.target.files[0];
-    const fileName = selectedFile.name;
-    console.log('Tên tệp đã chọn:', fileName);
+    if (selectedFile) {
+      const fileName = selectedFile.name;
+      const fileSize = selectedFile.size;
+      const fileType = selectedFile.type;
 
-    // Lưu tên tệp vào biến trong component
-    this.editProductForm.patchValue({
-      idImage: fileName
-    });
+
+      if (!fileType.startsWith('image/')) {
+        console.error('Chỉ chấp nhận các loại file ảnh.');
+        return;
+      }
+
+
+      const maxSizeBytes = 5 * 1024 * 1024;
+      if (fileSize > maxSizeBytes) {
+        console.error('Kích thước file vượt quá giới hạn cho phép.');
+        return;
+      }
+
+      console.log('Tên tệp đã chọn:', fileName);
+
+
+      this.editProductForm.patchValue({
+        idImage: fileName
+      });
+    } else {
+      console.error('Không tìm thấy tệp đã chọn');
+    }
   }
 
   onSubmit() {
