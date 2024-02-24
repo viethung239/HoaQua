@@ -4,12 +4,14 @@ export const navbarData: INavbarData[] = [
   {
       routeLink: 'admin/trang-chu',
       icon: 'fal fa-home',
-      label: 'Trang Chủ'
+      label: 'Trang Chủ',
+
   },
   {
       routeLink: 'admin/san-pham',
       icon: 'fal fa-box-open',
       label: 'Sản Phẩm',
+      roles: ['NVSanPham','Admin'],
       items: [
         {
             routeLink: 'admin/san-pham/danh-sach-san-pham',
@@ -31,6 +33,7 @@ export const navbarData: INavbarData[] = [
     icon: 'fal fa-user',
     label: 'Người dùng',
     expanded: true,
+    roles: ['NVNhanSu','Admin'],
     items: [
         {
             routeLink: 'admin/nguoi-dung/danh-sach-nguoi-dung',
@@ -62,19 +65,20 @@ export const navbarData: INavbarData[] = [
 {
   routeLink: 'admin/chi-nhanh',
   icon: 'fal fa-city',
-  label: 'Chi Nhánh'
-
+  label: 'Chi Nhánh',
+  roles: ['Admin', 'NVKho','NVNhanSu']
 },
 {
   routeLink: 'admin/nha-cung-cap',
   icon: 'fal fa-truck fa-fast',
-  label: 'Nhà cung cấp'
-
+  label: 'Nhà cung cấp',
+  roles: ['Admin', 'NVKho',]
 },
 {
   routeLink: 'admin/kho',
   icon: 'fal fa-warehouse',
   label: 'Kho',
+  roles: ['Admin', 'NVKho',],
   expanded: true,
     items: [
       {

@@ -24,9 +24,9 @@ export class HeaderComponent{
     this.isPopupVisible = !this.isPopupVisible;
   }
   ngOnInit(): void {
-    // Kiểm tra xem có sự tồn tại của localStorage trước khi truy cập
+
     if (typeof localStorage !== 'undefined') {
-      // Lấy token từ localStorage
+
       const token = localStorage.getItem('token');
       if (token) {
         const decodedToken = this.jwtHelper.decodeToken(token);

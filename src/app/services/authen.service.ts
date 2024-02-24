@@ -3,11 +3,13 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable, tap, throwError } from 'rxjs';
+import { navbarData } from '../admin/sidenav/nav-data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenService {
+
   private jwtHelper = new JwtHelperService();
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -99,4 +101,23 @@ export class AuthenService {
   }
 
 
+  getRolesFromToken(): string[] {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decodedToken = this.jwtHelper.decodeToken(token);
+      return decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'] || [];
+    }
+    return [];
+  }
+
+
+  filterNavigationData(): any[] {
+    const userRoles = this.getRolesFromToken();
+    console.log('User roles:', userRoles); // In ra danh sách các quyền
+    return navbarData.filter(item => {
+
+      return !item.roles || item.roles.some(role => userRoles.includes(role));
+
+    });
+  }
 }

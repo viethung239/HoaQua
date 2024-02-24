@@ -1,3 +1,4 @@
+import { AuthenService } from './../../services/authen.service';
 import { animate, keyframes, style, transition, trigger } from '@angular/animations';
 import { Component, Output, EventEmitter, OnInit, HostListener } from '@angular/core';
 import { navbarData } from './nav-data';
@@ -56,11 +57,12 @@ export class SidenavComponent implements OnInit {
     }
   }
 
-  constructor(public router: Router) {}
+  constructor(public router: Router, private authService:AuthenService) {}
   ngOnInit(): void {
     if (typeof window !== 'undefined') {
       this.screenWidth = window.innerWidth;
     }
+    this.navData = this.authService.filterNavigationData();
   }
 
   toggleCollapse(): void {
