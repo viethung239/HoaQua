@@ -19,6 +19,7 @@ import { LoginComponent } from './admin/login/login.component';
 import { LayoutAdminComponent } from './admin/layout-admin/layout-admin.component';
 import { FormsModule } from '@angular/forms';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
+import { DonHangComponent } from './admin/don-hang/don-hang.component';
 
 
 
@@ -42,6 +43,7 @@ import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
       HeaderComponent,
       LoginComponent,
       LayoutAdminComponent,
+
 
 
 

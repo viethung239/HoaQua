@@ -40,6 +40,10 @@ const routes: Routes = [
         path:'admin/kho',
         loadChildren:() =>import('./admin/kho/kho.module').then(k => k.KhoModule )
       },
+      {
+        path:'admin/don-hang',
+        loadChildren:() =>import('./admin/don-hang/don-hang.module').then(k => k.DonHangModule )
+      },
     ]
   },
   {path:'', redirectTo:'login',pathMatch:'full'},

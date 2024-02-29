@@ -1,0 +1,29 @@
+<form [formGroup]="addOrderDetailForm"   class="example-form" >
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Chọn sản phẩm</mat-label>
+    <mat-select placeholder="Chọn sản phẩm" formControlName="idSanPham" (selectionChange)="onProductSelectionChange($event.value)">
+      <mat-option *ngFor="let product of SanPham" [value]="product.idSanPham">
+        {{ product.tenSanPham }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="example-width">
+    <mat-label>Giá của sản phẩm</mat-label>
+    <input matInput  [value]="selectedProductPrice | currency:'VND'" [disabled]="true">
+  </mat-form-field>
+  <button mat-button (click)="giamSoLuong()">-</button>
+  <mat-form-field class="example-width-a">
+    <input matInput  formControlName="soLuong" [readonly]="true">
+  </mat-form-field>
+  <button mat-button (click)="tangSoLuong()">+</button>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Tổng tiền"  [readonly]="true" formControlName="tongTien" [value]="addOrderDetailForm.get('tongTien')?.value | currency:'VND'">
+  </mat-form-field>
+  <div class="dialog-actions">
+    <button mat-button (click)="closeDialog()">Đóng</button>
+    <button mat-button color="primary" (click)="confirmSelection()" >Xác nhận</button>
+  </div>
+</form>

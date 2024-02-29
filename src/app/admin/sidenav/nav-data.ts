@@ -69,8 +69,25 @@ export const navbarData: INavbarData[] = [
   roles: ['Admin', 'NVKho','NVNhanSu']
 },
 {
+  routeLink: 'admin/don-hang',
+  icon: 'fal fa-truck fa-fast ',
+  label: 'Đơn hàng',
+  expanded: true,
+  roles: ['NVNhanSu','Admin'],
+  items: [
+      {
+          routeLink: 'admin/don-hang/danh-sach-don-hang',
+          label: 'Danh sách đơn hàng'
+      },
+      {
+          routeLink: 'admin/don-hang/don-hang-chi-tiet',
+          label: 'Đơn hàng chi tiết'
+      }
+  ]
+},
+{
   routeLink: 'admin/nha-cung-cap',
-  icon: 'fal fa-truck fa-fast',
+  icon: 'fal fa-boxes',
   label: 'Nhà cung cấp',
   roles: ['Admin', 'NVKho',]
 },

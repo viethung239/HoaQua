@@ -40,4 +40,5 @@ export class UserService {
     const url = `https://localhost:7123/api/User/${userId}`;
     return this.authenService.sendProtectedRequestGetById(url);
   }
+
 }
