@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class ProductComponent implements AfterViewInit{
 
-  displayedColumns: string[] = ['stt', 'tenSanPham', 'giaSanPham','ngayTao', 'ngayCapNhat','actions'];
+  displayedColumns: string[] = ['stt', 'tenSanPham', 'giaSanPham','idImage','ngayTao', 'ngayCapNhat','actions'];
 
   dataSource = new MatTableDataSource<ProductData>([]);
 
@@ -29,8 +29,8 @@ export class ProductComponent implements AfterViewInit{
   getDataProduct(): void {
     this.productService.getListProduct().subscribe({
       next: (data) => {
-
-
+        data.sort((a: ProductData, b: ProductData) => new Date(b.ngayTao).getTime() - new Date(a.ngayTao).getTime());
+        data.sort((a: ProductData, b: ProductData) => new Date(b.ngayCapNhat).getTime() - new Date(a.ngayCapNhat).getTime());
         this.dataSource.data = data;
         console.log(data);
       },
@@ -65,7 +65,7 @@ export interface ProductData {
   idDMSanPham: string,
   tenSanPham: string,
   giaSanPham: string,
-  giaNhapVao: string,
+
   mota: string,
   idImage: string,
   suDung: boolean,

@@ -10,7 +10,7 @@ import { UserService } from '../../services/user.service';
   styleUrl: './user.component.scss'
 })
 export class UserComponent {
-  displayedColumns: string[] = ['stt', 'userName', 'email','soDienThoai','ngayTao', 'ngayCapNhat','actions'];
+  displayedColumns: string[] = ['stt', 'userName', 'email','soDienThoai','avartarUrl','ngayTao', 'ngayCapNhat','actions'];
 
   dataSource = new MatTableDataSource<UserData>([]);
 

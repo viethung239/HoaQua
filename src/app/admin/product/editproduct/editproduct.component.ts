@@ -40,7 +40,7 @@ export class EditproductComponent implements OnInit {
       idSanPham: this.idSanPham,
       idDMSanPham: ['', Validators.required],
       giaSanPham: ['', Validators.required],
-      giaNhapVao: ['', Validators.required],
+
       mota: ['', Validators.required],
       suDung: ['true', Validators.required],
       idImage: ['', Validators.required]
@@ -64,7 +64,7 @@ export class EditproductComponent implements OnInit {
             this.editProductForm.patchValue({
               tenSanPham: productData.tenSanPham,
               giaSanPham: productData.giaSanPham,
-              giaNhapVao: productData.giaNhapVao,
+
               mota: productData.mota,
               idDMSanPham: productData.idDMSanPham,
               suDung: productData.suDung,
@@ -138,7 +138,7 @@ export class EditproductComponent implements OnInit {
       });
     } else {
       console.error('Biểu mẫu không hợp lệ.');
-      // Hiển thị thông báo lỗi cho người dùng nếu cần
+
     }
   }
 }

@@ -25,7 +25,7 @@ export class AddproductComponent implements OnInit {
 
       idDMSanPham: ['', Validators.required],
       giaSanPham: ['', Validators.required],
-      giaNhapVao: ['', Validators.required],
+
       mota: ['', Validators.required],
       suDung: ['true', Validators.required],
       tenSanPham: ['', Validators.required],

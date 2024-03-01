@@ -14,12 +14,7 @@
       Giá sản phẩm không được để trống
     </mat-error>
   </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Giá Nhập" formControlName="giaNhapVao">
-    <mat-error *ngIf="addProductForm.get('giaNhapVao')?.hasError('required')">
-      Giá nhập sản phẩm không được để trống
-    </mat-error>
-  </mat-form-field>
+
   <mat-form-field>
     <input matInput placeholder="Mô tả" formControlName="mota">
     <mat-error *ngIf="addProductForm.get('mota')?.hasError('required')">

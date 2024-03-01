@@ -3,7 +3,7 @@
   <div class="product-info">
     <div class="product-image">
       <mat-card>
-        <img mat-card-image src="assets/{{ product.idImage }}" alt="{{ product.tenSanPham }} Image">
+        <img style="max-height: 400px;" mat-card-image src="assets/{{ product.idImage }}" alt="{{ product.tenSanPham }} Image">
       </mat-card>
     </div>
     <div class="details">
@@ -14,11 +14,7 @@
             <input matInput [readonly]="true" >
             {{ product.giaSanPham | currency:'VND' }}
           </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <mat-label>Giá nhập vào</mat-label>
-            <input matInput [readonly]="true" >
-            {{ product.giaNhapVao | currency:'VND' }}
-          </mat-form-field>
+
           <mat-form-field class="example-full-width">
             <mat-label>Ngày tạo</mat-label>
             <input matInput [readonly]="true" >

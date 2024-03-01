@@ -12,7 +12,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./don-hang.component.scss']
 })
 export class DonHangComponent {
-  displayedColumns: string[] = ['maDonHang', 'tenKhach','soDienThoaiKhach','diaChi', 'ngayTao', 'ngayCapNhat','actions'];
+  displayedColumns: string[] = ['maDonHang', 'tenKhach','soDienThoaiKhach','diaChi', 'kieuThanhToan', 'ngayTao','actions'];
   dataSource = new MatTableDataSource<Order>([]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
