@@ -16,12 +16,14 @@ import { MatCardModule } from '@angular/material/card';
 import { ThemDonHangComponent } from './them-don-hang/them-don-hang.component';
 import { ItemDonHangComponent } from './item-don-hang/item-don-hang.component';
 
-import { FormsModule} from '@angular/forms'
+import { FormsModule} from '@angular/forms';
+import { ChiTietDonHangComponent } from './chi-tiet-don-hang/chi-tiet-don-hang.component'
 @NgModule({
   declarations: [
     DonHangComponent,
     ThemDonHangComponent,
-    ItemDonHangComponent
+    ItemDonHangComponent,
+    ChiTietDonHangComponent
 
   ],
   imports: [

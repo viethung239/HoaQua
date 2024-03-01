@@ -52,7 +52,7 @@ export class ThemDonHangComponent {
 
       maDonHang: [this.generateRandomOrderId(), Validators.required],
       kieuThanhToan: ['', Validators.required],
-      thanhTien: ['', Validators.required],
+      thanhTien: ['0', Validators.required],
 
     });
   }

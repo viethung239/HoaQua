@@ -8,9 +8,7 @@
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <input matInput placeholder="Đơn hàng" [readonly]="true" formControlName="maDonHang">
-    <mat-error *ngIf="addOrderForm.get('maDonHang')?.hasError('required')">
-      Mã đơn không được để trống
-    </mat-error>
+
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <mat-label>Kiểu thanh toán</mat-label>

@@ -79,10 +79,7 @@ export const navbarData: INavbarData[] = [
           routeLink: 'admin/don-hang/danh-sach-don-hang',
           label: 'Danh sách đơn hàng'
       },
-      {
-          routeLink: 'admin/don-hang/don-hang-chi-tiet',
-          label: 'Đơn hàng chi tiết'
-      }
+
   ]
 },
 {
