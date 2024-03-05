@@ -113,7 +113,7 @@ export class AuthenService {
 
   filterNavigationData(): any[] {
     const userRoles = this.getRolesFromToken();
-    console.log('User roles:', userRoles); // In ra danh sách các quyền
+    console.log('User roles:', userRoles);
     return navbarData.filter(item => {
 
       return !item.roles || item.roles.some(role => userRoles.includes(role));

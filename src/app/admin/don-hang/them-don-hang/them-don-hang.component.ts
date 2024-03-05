@@ -191,6 +191,9 @@ export class ThemDonHangComponent {
     });
     this.addOrderForm.get('thanhTien')?.setValue(total);
   }
+  DonHang(): boolean {
+    return this.donHangChiTiet.length > 0;
+  }
 
 }
 export interface OrdeDetails {

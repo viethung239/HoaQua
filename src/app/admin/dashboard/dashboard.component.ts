@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Component({
@@ -8,21 +8,35 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 })
 export class DashboardComponent {
   TenNV: string | undefined;
+  Role : string | undefined;
+  AvatarUrl : string | undefined;
+  innerWidth : any;
   constructor(
     private jwtHelper: JwtHelperService) {
 
   }
   ngOnInit(): void {
-    // Kiểm tra xem có sự tồn tại của localStorage trước khi truy cập
+
     if (typeof localStorage !== 'undefined') {
-      // Lấy token từ localStorage
       const token = localStorage.getItem('token');
       if (token) {
         const decodedToken = this.jwtHelper.decodeToken(token);
         this.TenNV = decodedToken['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'];
+        this.Role = decodedToken['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
+        this.AvatarUrl = decodedToken ['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress']
         console.log('Token khi dịch', decodedToken);
 
       }
     }
+    this.innerWidth = window.innerWidth;
   }
+  @HostListener('window:resize', ['$event'])
+  onResize(even: any){
+    this.innerWidth = window.innerWidth;
+  }
+
+  getClass(){
+    return this.innerWidth < 925 ? 'row-md' : 'row';
+  }
+
 }

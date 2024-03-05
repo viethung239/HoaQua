@@ -73,7 +73,7 @@ export const navbarData: INavbarData[] = [
   icon: 'fal fa-truck fa-fast ',
   label: 'Đơn hàng',
   expanded: true,
-  roles: ['NVNhanSu','Admin'],
+  roles: ['NVSanPham','Admin'],
   items: [
       {
           routeLink: 'admin/don-hang/danh-sach-don-hang',

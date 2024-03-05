@@ -87,7 +87,9 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+  <div *ngIf="!donHangChiTiet.length" style="text-align: center; margin-top: 20px;">
+    Chưa có sản phẩm nào cả
+  </div>
 
-
-  <button mat-raised-button color="primary" class="btn-them" type="submit">Thêm Đơn</button>
+  <button mat-raised-button color="primary" class="btn-them" type="submit" [disabled]="!DonHang()">Thêm Đơn</button>
 </form>
